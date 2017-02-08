@@ -5,7 +5,7 @@
 #include<opencv2/imgproc/imgproc.hpp>
 
 #include<iostream>
-#include "conio.h"           // it may be necessary to change or remove this line if not using Windows
+//#include "conio.h"           // it may be necessary to change or remove this line if not using Windows
 
 #include "Blob.h"
 
@@ -47,13 +47,14 @@ int main(int argc, char** argv) {
 
     if (!capVideo.isOpened()) {                                                 // if unable to open video file
         std::cout << "error reading video file" << std::endl << std::endl;      // show error message
-        getch();                   // it may be necessary to change or remove this line if not using Windows
+        //getch();                   // it may be necessary to change or remove this line if not using Windows
         return(0);                                                              // and exit program
     }
 
-    if (capVideo.get(CV_CAP_PROP_FRAME_COUNT) < 2) {
+    //if (capVideo.get(CV_CAP_PROP_FRAME_COUNT) < 2) {
+    if(false) {
         std::cout << "error: video file must have at least two frames";
-        getch();                   // it may be necessary to change or remove this line if not using Windows
+        //getch();                   // it may be necessary to change or remove this line if not using Windows
         return(0);
     }
 
