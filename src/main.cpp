@@ -5,7 +5,7 @@
 #include<opencv2/imgproc/imgproc.hpp>
 
 #include<iostream>
-#include<conio.h>           // it may be necessary to change or remove this line if not using Windows
+#include "conio.h"           // it may be necessary to change or remove this line if not using Windows
 
 #include "Blob.h"
 
@@ -30,7 +30,7 @@ void drawBlobInfoOnImage(std::vector<Blob> &blobs, cv::Mat &imgFrame2Copy);
 void drawCarCountOnImage(int &carCount, cv::Mat &imgFrame2Copy);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-int main(void) {
+int main(int argc, char** argv) {
 
     cv::VideoCapture capVideo;
 
@@ -43,17 +43,17 @@ int main(void) {
 
     int carCount = 0;
 
-    capVideo.open("CarsDrivingUnderBridge.mp4");
+    capVideo.open(argv[1]);
 
     if (!capVideo.isOpened()) {                                                 // if unable to open video file
         std::cout << "error reading video file" << std::endl << std::endl;      // show error message
-        _getch();                   // it may be necessary to change or remove this line if not using Windows
+        getch();                   // it may be necessary to change or remove this line if not using Windows
         return(0);                                                              // and exit program
     }
 
     if (capVideo.get(CV_CAP_PROP_FRAME_COUNT) < 2) {
         std::cout << "error: video file must have at least two frames";
-        _getch();                   // it may be necessary to change or remove this line if not using Windows
+        getch();                   // it may be necessary to change or remove this line if not using Windows
         return(0);
     }
 
